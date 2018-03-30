@@ -2,6 +2,7 @@
 html
   head
     title POS
+    script(src='//cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-debug.js')
     script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
     script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js')
     link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css')
@@ -9,4 +10,6 @@ html
   body
     block content
     script.
-      var vm = new #{kovm}('#{kodata}')
+      var data = !{kodata};
+      var vm = new #{kovm}(data);
+      ko.applyBindings(vm);

@@ -9,13 +9,20 @@ router.use(function (req,res,next) {
 });
 
 router.get("/",function(req,res){
-  res.render('index', { message: 'Hello there!', kovm: 'DefaultViewModel', kodata: 'Test' })
+  res.render('index', { kovm: 'ItemDisplayViewModel', kodata: JSON.stringify({'items' : [{'name' : 'Food'}, {'name' : 'Drink'}]})})
+});
+
+router.get("/index",function(req,res){
+  res.setHeader('Content-Type', 'application/json');
+  res.send(JSON.stringify([{'name' : 'Dessert'}, {'name' : 'Beer'}]));
+  res.end();
 });
 
 //router.get("/index",function(req,res){
 //  res.sendFile(path + "Main.html");
 //});
 app.use("/",router);
+app.use("/viewmodel", express.static(__dirname + '/view-model'));
 
 app.use("*",function(req,res){
   res.writeHead(404, {'Content-Type': 'text/html'})
