@@ -1,0 +1,23 @@
+{
+  "name": "dojo-pos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "knockout": "^3.5.0-beta"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanchunwei/DojoPOS.git"
+  },
+  "author": "Tan Chun Wei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tanchunwei/DojoPOS/issues"
+  },
+  "homepage": "https://github.com/tanchunwei/DojoPOS#readme"
+}
