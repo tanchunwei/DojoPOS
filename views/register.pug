@@ -1,0 +1,40 @@
+extends layout.pug
+
+block scripts
+	script(src='/viewmodel/LoginViewModel.js')
+
+block content
+	<div class="col-sm-3">
+	</div>
+	<div class="col-sm-6 column well">
+		<div class="col-sm-4 col-md-3">Username:</div>
+		<div class="col-sm-8 col-md-9" style="padding-bottom: 5px"><input type="text" data-bind="value: username"/></div>
+
+		<div class="col-sm-4 col-md-3">Password:</div>
+		<div class="col-sm-8 col-md-9" style="padding-bottom: 5px"><input type="password" data-bind="value: password"/></div>
+
+		<div class="col-sm-12">
+			<button class="btn btn-sm btn-primary" onclick="register()">Register</button>
+			<button class="btn btn-sm btn-link" onclick="window.location.href='/'">back</button>
+		</div>
+	</div>
+	<div class="col-sm-3">
+	</div>
+
+	script.
+		function register(){
+			$.ajax({
+				url: "/register",
+				type: "POST",
+				data: {
+					username: vm.username(),
+					password: vm.password()
+				}
+			}).done(function(data) {
+				if(data.Result){
+					window.location.href='/';
+				}else{
+					alert(data.Message);
+				}
+			});
+		}

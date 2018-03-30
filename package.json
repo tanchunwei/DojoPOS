@@ -4,7 +4,13 @@
   "description": "",
   "main": "main.js",
   "dependencies": {
-    "knockout": "^3.5.0-beta"
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "gen-uuid": "0.0.1",
+    "knockout": "^3.5.0-beta",
+    "pug": "^2.0.3",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {},
   "scripts": {
