@@ -1,0 +1,12 @@
+//- layout.pug
+html
+  head
+    title POS
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js')
+    link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css')
+    block scripts
+  body
+    block content
+    script.
+      var vm = new #{kovm}('#{kodata}')
