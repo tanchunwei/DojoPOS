@@ -25,6 +25,12 @@ block content
 	</div>
 
 	script.
+		$(window).keyup(function(event) {
+			if (event.keyCode === 13) {
+				login();
+			}
+		});
+
 		function login(){
 			$.ajax({
 				url: "/login",

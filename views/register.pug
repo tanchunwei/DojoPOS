@@ -18,13 +18,19 @@ block content
 
 		<div class="col-sm-12">
 			<button class="btn btn-sm btn-primary" onclick="register()">Register</button>
-			<button class="btn btn-sm btn-link" onclick="window.location.href='/'">back</button>
+			<button class="btn btn-sm btn-link" onclick="window.location.href='/'">Back</button>
 		</div>
 	</div>
 	<div class="col-sm-3">
 	</div>
 
 	script.
+		$(window).keyup(function(event) {
+			if (event.keyCode === 13) {
+				register();
+			}
+		});
+
 		function register(){
 			$.ajax({
 				url: "/register",
