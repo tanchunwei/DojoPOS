@@ -1,3 +1,3 @@
 var ItemDisplayViewModel = function(data) {
-  this.items = ko.observable(data.items || '');
+  this.categories = ko.observable(data || '');
 };

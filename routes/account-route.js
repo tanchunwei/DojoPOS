@@ -21,6 +21,7 @@ module.exports = function(routerSettings){
     db.query('Select * from user where username = ?', username, function(err, users){
         if(users.length > 0 && username == users[0].Username && password == users[0].Password){
           req.session.users = users[0];
+          req.session.platform = platform;
           result = true;
         }else{
           message = 'Failed to login'
