@@ -29,15 +29,14 @@ exports.get = function() {
   return state.pool
 }
 
-exports.query = function(sql, values, done) {
-  var result;
+exports.query = function(sql, values, done, fail) {
   var pool = exports.get();
-  pool.query(sql, values, result = function(err, result) {
+  pool.query(sql, values, function(err, result) {
     if (err) {
       console.log("[mysql error]",err);
-      return done(err)
+      return fail();
+    }else{
+      return done(null, result);
     }
-    return done(null, result)
-  })
-  return result;
+  });
 }

@@ -22,8 +22,7 @@ var routeSettings = function() {
     this.app.set('trust proxy', 1) // trust first proxy
     sess.cookie.secure = true // serve secure cookies
   }
-  this.app.use(session(sess))
-
+  this.app.use(session(sess));
   this.app.use("/",this.router);
   this.app.use("/viewmodel", express.static( __dirname + '/../view-model'));
   this.app.use(bodyParser.json({ type: 'application/*+json' }));

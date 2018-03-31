@@ -13,6 +13,9 @@ block content
 		<div class="col-sm-4 col-md-3">Password:</div>
 		<div class="col-sm-8 col-md-9" style="padding-bottom: 5px"><input type="password" data-bind="value: password"/></div>
 
+		<div class="col-sm-4 col-md-3">Email:</div>
+		<div class="col-sm-8 col-md-9" style="padding-bottom: 5px"><input type="email" data-bind="value: email"/></div>
+
 		<div class="col-sm-12">
 			<button class="btn btn-sm btn-primary" onclick="register()">Register</button>
 			<button class="btn btn-sm btn-link" onclick="window.location.href='/'">back</button>
@@ -28,10 +31,12 @@ block content
 				type: "POST",
 				data: {
 					username: vm.username(),
-					password: vm.password()
+					password: vm.password(),
+					email: vm.email()
 				}
 			}).done(function(data) {
 				if(data.Result){
+					alert(vm.username() + ' registered successfully' );
 					window.location.href='/';
 				}else{
 					alert(data.Message);

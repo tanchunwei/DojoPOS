@@ -5,9 +5,9 @@ module.exports = function(routerSettings){
 
   router.use(function (req,res,next) {
     if(req.session.users)
-      console.log("User["+req.session.users.UserId+"], Path:" +req.path);
+      console.log("User["+req.session.users.UserId+"], Method:"+req.method+", Path:" +req.path);
     else
-      console.log("User[Unknown], Path:" +req.path);
+      console.log("User[Unknown], Method:"+req.method+", Path:" +req.path);
 
     if(req.session.users == undefined && !(nonAuthenticationPage.includes(req.path) || req.path.startsWith("/viewmodel/"))){
       res.redirect('/');
