@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `dojopos` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `dojopos`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: dojopos
@@ -18,65 +16,33 @@ USE `dojopos`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `item`
+-- Dumping data for table `item`
 --
 
-DROP TABLE IF EXISTS `item`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `item` (
-  `ItemId` varchar(50) NOT NULL COMMENT 'Guid of Item',
-  `ItemName` varchar(50) NOT NULL COMMENT 'Name of Item',
-  `Price` decimal(18,2) NOT NULL COMMENT 'Price of Item',
-  `Priority` int(11) NOT NULL DEFAULT '0' COMMENT 'Display priority of item',
-  `UserId` varchar(50) NOT NULL,
-  `CreatedDate` datetime DEFAULT NULL,
-  `UpdatedDate` datetime DEFAULT NULL,
-  PRIMARY KEY (`ItemId`),
-  KEY `Item_UserFK` (`UserId`),
-  CONSTRAINT `Item_UserIdFK` FOREIGN KEY (`UserId`) REFERENCES `user` (`UserId`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `item` WRITE;
+/*!40000 ALTER TABLE `item` DISABLE KEYS */;
+/*!40000 ALTER TABLE `item` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Table structure for table `item_category`
+-- Dumping data for table `item_category`
 --
 
-DROP TABLE IF EXISTS `item_category`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `item_category` (
-  `CategoryId` varchar(50) NOT NULL,
-  `CategoryName` varchar(50) NOT NULL,
-  `Priority` int(11) NOT NULL,
-  `UserId` varchar(50) NOT NULL,
-  `CreatedDate` datetime DEFAULT NULL,
-  `UpdatedDate` datetime DEFAULT NULL,
-  PRIMARY KEY (`CategoryId`),
-  KEY `ItemCategory_UserFK` (`UserId`),
-  CONSTRAINT `ItemCategory_UserIdFK` FOREIGN KEY (`UserId`) REFERENCES `user` (`UserId`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `item_category` WRITE;
+/*!40000 ALTER TABLE `item_category` DISABLE KEYS */;
+INSERT INTO `item_category` VALUES ('b0152095-3496-11e8-81b0-00ffb781a91e','Noodles',1,'592f1536-3496-11e8-81b0-00ffb781a91e','2018-03-31 11:50:43','2018-03-31 11:50:43'),('b0153542-3496-11e8-81b0-00ffb781a91e','Rice',2,'592f1536-3496-11e8-81b0-00ffb781a91e','2018-03-31 11:50:43','2018-03-31 11:50:43'),('b015383d-3496-11e8-81b0-00ffb781a91e','Beverage',3,'592f1536-3496-11e8-81b0-00ffb781a91e','2018-03-31 11:50:43','2018-03-31 11:50:43');
+/*!40000 ALTER TABLE `item_category` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Table structure for table `user`
+-- Dumping data for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `user` (
-  `UserId` varchar(50) NOT NULL COMMENT 'GUID of user',
-  `Username` varchar(50) NOT NULL COMMENT 'Username',
-  `Password` varchar(88) NOT NULL COMMENT 'Support up to SHA 512 hashing',
-  `Email` varchar(500) NOT NULL COMMENT 'Support up to world longest email address',
-  `CreatedDate` datetime DEFAULT NULL,
-  `UpdatedDate` datetime DEFAULT NULL,
-  PRIMARY KEY (`UserId`),
-  UNIQUE KEY `Username_UNIQUE` (`Username`),
-  UNIQUE KEY `Email_UNIQUE` (`Email`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES ('592f1536-3496-11e8-81b0-00ffb781a91e','Test','1234qwer','Test@test.com','2018-03-31 11:48:18','2018-03-31 11:48:18');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -87,4 +53,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-31 10:58:25
+-- Dump completed on 2018-03-31 11:55:06
